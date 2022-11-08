@@ -94,3 +94,12 @@ Forward to service port to see if it actually worked:
 ```
 kubectl port-forward service/nginx-service 8033:80
 ```
+
+
+
+
+## Sources: 
+* https://kubernetes.io/docs/concepts/workloads/pods/
+* https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+* https://kubernetes.io/docs/concepts/services-networking/service/
+* https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/
