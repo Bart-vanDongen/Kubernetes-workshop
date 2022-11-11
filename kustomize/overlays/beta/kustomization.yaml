@@ -1,0 +1,10 @@
+---
+namePrefix: beta-
+commonLabels:
+  variant: beta
+commonAnnotations:
+  note: Hello, I am be beta!
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - index-html-configmap.yaml

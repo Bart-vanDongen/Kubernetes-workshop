@@ -1,0 +1,11 @@
+---
+namePrefix: production-
+commonLabels:
+  variant: production
+commonAnnotations:
+  note: Hello, I am production!
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - index-html-configmap.yaml
+  - nginxDeploy.yaml

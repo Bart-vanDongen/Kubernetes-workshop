@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html-configmap
+  namespace: default
+data:
+  index.html: |
+    <html>
+    <h1>Welcome to beta release</h1>
+    </br>
+    <h1>This is a working nginx website on kubernetes! with beta options </h1>
+    </html
