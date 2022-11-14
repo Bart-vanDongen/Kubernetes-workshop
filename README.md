@@ -31,5 +31,5 @@ https://helm.sh/docs/intro/install/
 This workshop contains 3 elements. 
 * How to deploy an web application using yaml's
 * How to deploy different versions of the web application using kustomize
-* Service mesh 
-* How to deploy application using helm. 
+* Service mesh (using helm)
+
