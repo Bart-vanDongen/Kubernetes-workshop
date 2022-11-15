@@ -1,5 +1,22 @@
 # Web-application deployment kubernetes
 You wanna create your first web application in a kubernetes clusters. 
+
+## Create cluster
+Minikube cluster is recommended. Because this is required for service mesh istio.
+
+Create a minikube cluster by using the following command.
+
+```
+minikube start
+```
+
+kind create cluster using the following command:
+
+```
+kind create cluster
+```
+
+
 ## Start of by creating a workload for kubernetes
 This can be accomplished in a variety of ways. However, we shall begin by making a pod.
 
