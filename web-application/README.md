@@ -50,22 +50,22 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    app: nginx
+    app: nginx-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-deployment
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-deployment
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
 ```
 
 Now you have your yaml file ready. You can use kubectl to apply your yaml on to your cluster. 
@@ -94,6 +94,60 @@ Forward to service port to see if it actually worked:
 ```
 kubectl port-forward service/nginx-service 8033:80
 ```
+
+
+## EXTRA: update the content of nginx web server.
+
+This is accomplished by include a config map including an index.html file in kubernetes. After that, mount it as a volume.
+
+Example configmap.yml: 
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-page
+data:
+  index.html: |
+    <html>
+    <h1>Welcome to the workshop</h1>
+    </br>
+    <h1>This is a working nginx website on kubernetes! </h1>
+    </html
+```
+
+
+example of nginx deployment:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-index-file
+              mountPath: /usr/share/nginx/html/
+      volumes:
+        - name: nginx-index-file
+          configMap:
+            name: index-page
+```
+
 
 
 
